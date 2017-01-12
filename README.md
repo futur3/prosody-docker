@@ -1,17 +1,21 @@
 # Prosody Docker
 
+*NOTE* this version is built on top of the original __Dockerfile__ prosody created. The main change is the
+use of __Debian Jessie__ instead of __Ubuntu 14__ and the fact this version is pullable from a recent version
+of **docker-engine**.
+
 This is the Prosody Docker image building repository. Its only really designed to be used on the Prosody build server for pushing to the [Docker registry](https://registry.hub.docker.com).
 
-For images please see here: [Prosody on Docker](https://registry.hub.docker.com/u/prosody/prosody/).
+For images please see here: [Prosody on Docker](https://registry.hub.docker.com/u/freeluna/prosody/).
 
 It works by coping in a recently built `deb` file and running the install on the system.
 
 ## Running
 
-Docker images are built off an __Ubuntu 14.04 LTS__ base.
+Docker images are built off an __debian:jessie__ base.
 
 ```bash
-docker run -d --name prosody -p 5222:5222 prosody/prosody
+docker run -d --name prosody -p 5222:5222 freeluna/prosody
 ```
 
 A user can be created by using environment variables `LOCAL`, `DOMAIN`, and `PASSWORD`. This performs the following action on startup:
