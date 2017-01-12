@@ -8,7 +8,7 @@ This is the Prosody Docker image building repository. Its only really designed t
 
 For images please see here: [Prosody on Docker](https://registry.hub.docker.com/u/freeluna/prosody/).
 
-It works by coping in a recently built `deb` file and running the install on the system.
+It works by `apt-install`-ing the latest version of prosody from the ufficial apt repo.
 
 ## Running
 
@@ -65,7 +65,7 @@ docker run -d \
    -v /data/prosody/configuration:/etc/prosody \
    -v /logs/prosody:/var/log/prosody \
    -v /data/prosody/modules:/usr/lib/prosody-modules \
-   prosody/prosody:0.9
+   freeluna/prosody
 ```
 
 ## Building
@@ -73,7 +73,7 @@ docker run -d \
 Use the `build-docker.sh` script as follows:
 
 ```bash
-./build-docker.sh /path/to/built-image.deb version_tag [, ...version_tag2, ...]
+./build-docker.sh freeluna/prosody latest
 ```
 
 Where argument 1 is a pointer to the build `deb` file that you'd like to make an image from and 'version_tag' is the tag you'd like to push to the Docker registry with.
